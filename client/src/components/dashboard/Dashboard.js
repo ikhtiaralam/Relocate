@@ -4,16 +4,14 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import "./Dashboard.css";
 
-
-
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
-render() {
+  render() {
     const { user } = this.props.auth;
-return (
+    return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">

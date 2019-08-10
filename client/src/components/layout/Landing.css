@@ -1,29 +1,36 @@
 .flow-text-initial {
-    color: gold;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: oblique;
-    font-size: 150px;
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    position: relative;
-  }
+  color: gold;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 150px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  position: relative;
+  border-bottom: 2px solid gold;
+}
 
-  .container.valign-wrapper {
-      /* margin-left: 450px; */
-      margin: auto;
-      height: 75vh;
-  }
+.container.valign-wrapper {
+  /* margin-left: 450px; */
+  margin: auto;
+  height: 75vh;
+}
 
+#background-video {
+  height: auto;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: none;
+  position: absolute; /* optional depending on what you want to do in your app */
+}
 
+.waves-effect {
+  margin-left: 90px;
+}
 
- #background-video {
-    height: auto;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding: none;
-    position: absolute; /* optional depending on what you want to do in your app */
-  }
-  
-
+.nav-wrapper {
+  background: gold;
+  height: 50px;
+  color: aliceblue;
+  opacity: 0.8;
+}
