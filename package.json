@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chynnaj09/Relocate.git"
+    "url": "git+https://github.com/ikhtiaralam/Relocate.git"
   },
   "keywords": [
     "Relocation",
@@ -21,9 +21,9 @@
   "author": "CJ, Erick, Ikhtiar",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chynnaj09/Relocate/issues"
+    "url": "https://github.com/ikhtiaralam/Relocate/issues"
   },
-  "homepage": "https://github.com/chynnaj09/Relocate#readme",
+  "homepage": "https://github.com/ikhtiaralam/Relocate#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
