@@ -29,7 +29,7 @@ class Landing extends Component {
       <div className="container valign-wrapper">
         <div className="row">
           <div>
-            <p className="flow-text">
+            <p className="flow-text-initial">
               Relocate
             </p>
             <br />
