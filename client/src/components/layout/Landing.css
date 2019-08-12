@@ -1,12 +1,12 @@
 .flow-text-initial {
-  color: gold;
+  color: goldenrod;
   font-family: "Julius Sans One", sans-serif;
   font-size: 150px;
   text-align: center;
   margin-bottom: 20px;
   margin-top: 20px;
   position: relative;
-  border-bottom: 2px solid gold;
+  border-bottom: 2px solid goldenrod;
 }
 
 .container.valign-wrapper {
@@ -29,8 +29,9 @@
 }
 
 .nav-wrapper {
-  background: gold;
   height: 50px;
-  color: aliceblue;
-  opacity: 0.8;
+  color: goldenrod;
+}
+a.col.s5.brand-logo.center {
+  color: goldenrod;
 }

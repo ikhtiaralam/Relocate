@@ -5,14 +5,14 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar-fixed">
-        <nav className="nav-wrapper">
+        <nav className="nav-wrapper transparent">
           <div className="">
             <Link
               to="/"
               style={{
-                fontFamily: "Crimson Text"
+                fontFamily: "Julius Sans One"
               }}
-              className="col s5 brand-logo center black-text"
+              className="col s5 brand-logo center "
             >
               <i className="" />
               HOME
