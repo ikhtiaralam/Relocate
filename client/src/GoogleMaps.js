@@ -22,7 +22,7 @@ url.search = new URLSearchParams(queryParams);
 const mapStyles = {
     width: '80%',
     height: '100%',
-    position: 'absolute',
+    position: 'relative',
     top: '150px',
     left: '150px',
     
