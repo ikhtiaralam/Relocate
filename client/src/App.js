@@ -9,10 +9,12 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 
 
+
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import GoogleMaps from "./GoogleMaps";
 
 
 
@@ -37,18 +39,24 @@ if (localStorage.jwtToken) {
 
 
 
+
+
+
 const App = () => (
   <Provider store={store}>
   <Router>
   <div className=" mainContainer">
     <Navbar />
     <Route exact path="/" component={Landing} />
+    <GoogleMaps />
     <Route exact path="/register" component={Register} />
     <Route exact path="/login" component={Login} />
     <Switch>
     <PrivateRoute exact path="/dashboard" component={Dashboard} />  
     </Switch>
+
   </div>
+
   </Router>
   </Provider>
 );
