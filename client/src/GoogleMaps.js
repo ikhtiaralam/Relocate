@@ -4,6 +4,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 
 
+<<<<<<< HEAD
 const url = new URL('https://realtymole-rental-estimate-v1.p.rapidapi.com/rentalPrice');
 
 let queryParams = {
@@ -16,6 +17,8 @@ let queryParams = {
 };
 
 
+=======
+>>>>>>> 6ee066381424463dc041143c19eb5a2c35a38784
 const mapStyles = {
     width: '80%',
     height: '100%',
@@ -36,6 +39,7 @@ export class MapContainer extends Component {
 
         this.state = {
         apartments: [],
+<<<<<<< HEAD
         address: []
       };
     }
@@ -64,6 +68,36 @@ export class MapContainer extends Component {
             this.setState({ 
                 apartments:res.listings,
             });
+=======
+
+        queryParams: {
+            bedrooms: '',
+            bathrooms: '2',
+            propertyType: 'Single Family',
+            squareFootage: '', // 
+            compCount: '5',
+            address: '6425 Boaz Lane Dallas TX 75205',
+        }}
+
+
+
+    }
+
+   
+
+
+
+    componentDidMount() {
+        
+        const url = new URL('https://realtymole-rental-estimate-v1.p.rapidapi.com/rentalPrice');
+        url.search = new URLSearchParams(this.state.queryParams);
+        
+        fetch(url, {
+            headers: {
+                'x-rapidapi-host': 'realtymole-rental-estimate-v1.p.rapidapi.com',
+                'x-rapidapi-key': 'xjePNjcZoBmshIkdUz40QcJfpWSwp1cIRSWjsnxVLZj2JW7Y3X',
+            },
+>>>>>>> 6ee066381424463dc041143c19eb5a2c35a38784
         })
         .catch(err => console.log(err));
     }
@@ -78,8 +112,13 @@ export class MapContainer extends Component {
       })
     }
 
+
+
+
+
     render() {
       return (
+<<<<<<< HEAD
         <div>
 
         <form onSubmit={this.handleSubmit}>
@@ -92,6 +131,11 @@ export class MapContainer extends Component {
               />
               <button className="searchButton">Search</button>
           </form>
+=======
+        
+        <div>
+       
+>>>>>>> 6ee066381424463dc041143c19eb5a2c35a38784
 
           <Map
             google={this.props.google}
@@ -101,11 +145,15 @@ export class MapContainer extends Component {
           >
             {this.displayMarkers()}
           </Map>
+<<<<<<< HEAD
           
           
           
           </div> 
 
+=======
+        </div>
+>>>>>>> 6ee066381424463dc041143c19eb5a2c35a38784
       );
     }
   }
