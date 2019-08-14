@@ -3,22 +3,6 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 
 
-const url = new URL('https://realtymole-rental-estimate-v1.p.rapidapi.com/rentalPrice');
-
-let queryParams = {
-    bedrooms: '3',
-    bathrooms: '2',
-    propertyType: 'Single Family',
-    squareFootage: '1600',
-    compCount: '5',
-    address: '6425 Boaz Lane Dallas TX 75205',
-};
-
-url.search = new URLSearchParams(queryParams);
-
-
-
-
 const mapStyles = {
     width: '80%',
     height: '100%',
@@ -36,12 +20,29 @@ export class MapContainer extends Component {
 
         this.state = {
         apartments: [],
-      };
+
+        queryParams: {
+            bedrooms: '',
+            bathrooms: '2',
+            propertyType: 'Single Family',
+            squareFootage: '', // 
+            compCount: '5',
+            address: '6425 Boaz Lane Dallas TX 75205',
+        }}
+
+
+
     }
+
+   
 
 
 
     componentDidMount() {
+        
+        const url = new URL('https://realtymole-rental-estimate-v1.p.rapidapi.com/rentalPrice');
+        url.search = new URLSearchParams(this.state.queryParams);
+        
         fetch(url, {
             headers: {
                 'x-rapidapi-host': 'realtymole-rental-estimate-v1.p.rapidapi.com',
@@ -75,8 +76,16 @@ export class MapContainer extends Component {
       })
     }
 
+
+
+
+
     render() {
       return (
+        
+        <div>
+       
+
           <Map
             google={this.props.google}
             zoom={12}
@@ -85,7 +94,7 @@ export class MapContainer extends Component {
           >
             {this.displayMarkers()}
           </Map>
-
+        </div>
       );
     }
   }
