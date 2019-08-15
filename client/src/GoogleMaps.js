@@ -4,21 +4,8 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 
 
-<<<<<<< HEAD
 const url = new URL('https://realtymole-rental-estimate-v1.p.rapidapi.com/rentalPrice');
 
-let queryParams = {
-  bedrooms: '3',
-  bathrooms: '2',
-  propertyType: 'Single Family',
-  squareFootage: '1600',
-  compCount: '5',
-  address: '6425 Boaz Lane Dallas TX 75205',
-};
-
-
-=======
->>>>>>> 6ee066381424463dc041143c19eb5a2c35a38784
 const mapStyles = {
     width: '80%',
     height: '100%',
@@ -31,7 +18,6 @@ const mapStyles = {
 export class MapContainer extends Component {
     constructor(props) {
       super(props);
-      this.handleSubmit = this.handleSubmit.bind(this);
       
 
       // TO DO:   
@@ -39,20 +25,45 @@ export class MapContainer extends Component {
 
         this.state = {
         apartments: [],
-<<<<<<< HEAD
-        address: []
-      };
-    }
-    
-    handleSubmit = event => {
-    // event.preventDefault();
-    const data = event.target.value;
-    console.log("The user input: " + data);
-    queryParams.address = data; 
-   
+        queryParams: {
+          bedrooms: '3',
+          bathrooms: '2',
+          propertyType: 'Single Family',
+          squareFootage: '1600',
+          compCount: '5',
+          address: '',
+        }
       }
 
+     this.handleChange = this.handleChange.bind(this);
+    //  console.log("CHECK STATE",this.state.queryParams.address);
+    }
+    
+    handleChange = event => {
+      event.preventDefault(); 
+      const { queryParams } = this.state;
+      queryParams.address = event.target.value ;
+    this.setState({
+      queryParams
+    })
+    this.componentDidMount();
+    
+    //console.log(this.state.address);
+    // const data = event.target.value;
+    // console.log("The user input: " + data);
+  }
+  handleSubmit = event => {
+    event.preventDefault(); 
+      this.componentDidMount();
+      // this.componentDidUpdate();  
+  }
+
+    // componentDidUpdate() {
+    //   this.componentDidMount();
+    // }
+  
     componentDidMount() {
+      const { queryParams } = this.state;
       url.search = new URLSearchParams(queryParams);
       
       fetch(url, {
@@ -60,46 +71,17 @@ export class MapContainer extends Component {
             'x-rapidapi-host': 'realtymole-rental-estimate-v1.p.rapidapi.com',
             'x-rapidapi-key': 'xjePNjcZoBmshIkdUz40QcJfpWSwp1cIRSWjsnxVLZj2JW7Y3X',
         },
-    })
+      })
         .then(res => res.json())
         .then(res => {
-            console.log(res);
             // SET STATE HERE
+            console.log(res.listings)
             this.setState({ 
                 apartments:res.listings,
-            });
-=======
-
-        queryParams: {
-            bedrooms: '',
-            bathrooms: '2',
-            propertyType: 'Single Family',
-            squareFootage: '', // 
-            compCount: '5',
-            address: '6425 Boaz Lane Dallas TX 75205',
-        }}
-
-
-
-    }
-
-   
-
-
-
-    componentDidMount() {
-        
-        const url = new URL('https://realtymole-rental-estimate-v1.p.rapidapi.com/rentalPrice');
-        url.search = new URLSearchParams(this.state.queryParams);
-        
-        fetch(url, {
-            headers: {
-                'x-rapidapi-host': 'realtymole-rental-estimate-v1.p.rapidapi.com',
-                'x-rapidapi-key': 'xjePNjcZoBmshIkdUz40QcJfpWSwp1cIRSWjsnxVLZj2JW7Y3X',
-            },
->>>>>>> 6ee066381424463dc041143c19eb5a2c35a38784
+            }) 
         })
         .catch(err => console.log(err));
+        
     }
     
     displayMarkers = () => {
@@ -111,31 +93,20 @@ export class MapContainer extends Component {
        onClick={() => console.log("You clicked me!")} />
       })
     }
-
-
-
-
+    
 
     render() {
       return (
-<<<<<<< HEAD
         <div>
 
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="workaddress">Work Address: </label>
+          <label>Work Address: </label>
           <input className="search"
               type= 'text'
-              placeholder='6425 Boaz Lane Dallas TX 75205'
-              name="workaddress"
-              ref={(input) => this.input = input}
-              />
-              <button className="searchButton">Search</button>
+              defaultValue={this.state.address} 
+              onClick={this.handleChange}/>
+              <input type="submit" value="Submit"  />
           </form>
-=======
-        
-        <div>
-       
->>>>>>> 6ee066381424463dc041143c19eb5a2c35a38784
 
           <Map
             google={this.props.google}
@@ -145,15 +116,11 @@ export class MapContainer extends Component {
           >
             {this.displayMarkers()}
           </Map>
-<<<<<<< HEAD
           
           
           
           </div> 
 
-=======
-        </div>
->>>>>>> 6ee066381424463dc041143c19eb5a2c35a38784
       );
     }
   }
