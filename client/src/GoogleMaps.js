@@ -6,6 +6,19 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 const url = new URL('https://realtymole-rental-estimate-v1.p.rapidapi.com/rentalPrice');
 
+<<<<<<< HEAD
+=======
+let queryParams = {
+  bedrooms: '3',
+  bathrooms: '2',
+  propertyType: 'Single Family',
+  squareFootage: '1600',
+  compCount: '5',
+  address: '6425 Boaz Lane Dallas TX 75205',
+};
+
+
+>>>>>>> origin
 const mapStyles = {
     width: '80%',
     height: '100%',
@@ -25,6 +38,7 @@ export class MapContainer extends Component {
 
         this.state = {
         apartments: [],
+<<<<<<< HEAD
         queryParams: {
           bedrooms: '3',
           bathrooms: '2',
@@ -37,6 +51,10 @@ export class MapContainer extends Component {
 
      this.handleChange = this.handleChange.bind(this);
     //  console.log("CHECK STATE",this.state.queryParams.address);
+=======
+        address: []
+      };
+>>>>>>> origin
     }
     
     handleChange = event => {
@@ -78,7 +96,11 @@ export class MapContainer extends Component {
             console.log(res.listings)
             this.setState({ 
                 apartments:res.listings,
+<<<<<<< HEAD
             }) 
+=======
+            });
+>>>>>>> origin
         })
         .catch(err => console.log(err));
         
